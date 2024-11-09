@@ -1,13 +1,13 @@
-package CycleTask;
+package cycletask;
 
-public class SquareArray {
-    public void squareArray(){
+public class MultiArray {
+    public void multiArray(){
         CreateArray obj = new CreateArray();
         int[] array = obj.createArray();
-        int square;
+        int multi;
         for (int i = 0; i < array.length; i++) {
-            square = array[i] * array[i];
-            System.out.print(square + " ");
+            multi = array[i] * 5;
+            System.out.print(multi + " ");
         }
         System.out.println();
     }

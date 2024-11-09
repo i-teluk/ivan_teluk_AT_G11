@@ -1,4 +1,4 @@
-package CycleTask;
+package cycletask;
 
 public class SortArray {
     public void sortArray() {

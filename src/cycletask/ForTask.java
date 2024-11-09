@@ -1,4 +1,4 @@
-package CycleTask;
+package cycletask;
 
 public class ForTask {
     public void forTask() {

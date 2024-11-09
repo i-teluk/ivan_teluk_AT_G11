@@ -1,4 +1,4 @@
-package CycleTask;
+package cycletask;
 
 public class ReadArray {
     public void readArray() {
