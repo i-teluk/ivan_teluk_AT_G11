@@ -1,15 +1,15 @@
 package main.java.project.bubbles;
 
 public class Bubble {
-    private final float V = 0.3f;
+    private final double volume = 0.3;
     private String content;
 
     public Bubble(String content) {
         this.content = content;
     }
 
-    public float getV() {
-        return V;
+    public double getVolume() {
+        return volume;
     }
 
     public String getContent() {
