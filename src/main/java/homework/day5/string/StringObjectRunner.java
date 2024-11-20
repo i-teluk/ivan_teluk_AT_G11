@@ -13,5 +13,8 @@ public class StringObjectRunner {
 
         NowDate nowDate = new NowDate();
         nowDate.nowDate();
+
+        DateOutput dateOutput = new DateOutput();
+        dateOutput.dateOutput("08.12 20.11.2024");
     }
 }
