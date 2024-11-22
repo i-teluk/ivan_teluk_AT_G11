@@ -6,7 +6,7 @@ import java.util.Locale;
 
 
 public class DateOutput {
-    public void dateOutput(String date) {
+    public static void dateOutput(String date) {
         DateTimeFormatter input = DateTimeFormatter.ofPattern("HH.mm dd.MM.yyyy");
         LocalDateTime dateInput = LocalDateTime.parse(date, input);
         DateTimeFormatter output = DateTimeFormatter.ofPattern("MMMM, d, yyyy HH:mm", Locale.ENGLISH);

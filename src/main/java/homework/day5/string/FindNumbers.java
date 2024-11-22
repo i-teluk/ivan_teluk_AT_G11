@@ -1,7 +1,7 @@
 package main.java.homework.day5.string;
 
 public class FindNumbers {
-    public void findNumbers(String str) {
+    public static void findNumbers(String str) {
         String[] numbers = str.split("[\\D+, ]");
         int count = 0;
         for (String number : numbers) {

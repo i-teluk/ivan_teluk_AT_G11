@@ -16,5 +16,8 @@ public class StringObjectRunner {
 
         DateOutput dateOutput = new DateOutput();
         dateOutput.dateOutput("08.12 20.11.2024");
+
+        FutureDate futureDate = new FutureDate();
+        futureDate.futureDate("лялялялял");
     }
 }

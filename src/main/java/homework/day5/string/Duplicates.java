@@ -1,7 +1,7 @@
 package main.java.homework.day5.string;
 
 public class Duplicates {
-    public void duplicates(String str) {
+    public static void duplicates(String str) {
         String[] strs = str.split("[, ]");
         int count = 0;
         for (int i = 0; i < strs.length; i++) {
