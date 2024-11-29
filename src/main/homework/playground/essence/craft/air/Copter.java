@@ -1,6 +1,8 @@
 package main.homework.playground.essence.craft.air;
 
-public class Copter extends Aircraft {
+import java.io.Serializable;
+
+public class Copter extends Aircraft implements Serializable {
     public Copter(int mass, String name) {
         super(mass, name);
     }
