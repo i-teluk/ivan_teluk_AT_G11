@@ -9,12 +9,13 @@ public class FromFileToString {
     }
     public void fromFileToString() throws ClassNotFoundException {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("copter.ser"))) {
-            String object = (String) ois.readObject();
+            String object = ois.readObject().toString();
             System.out.println("Объект прочитан из файла");
             try (FileWriter fw = new FileWriter("copterString.txt")) {
                 fw.write(object);
                 System.out.println("Объект записан в новый файл как строка");
             }
+            ois.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

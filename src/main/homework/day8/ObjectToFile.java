@@ -15,6 +15,7 @@ public class ObjectToFile {
 
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("copter.ser"))) {
             oos.writeObject(copter);
+            oos.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
