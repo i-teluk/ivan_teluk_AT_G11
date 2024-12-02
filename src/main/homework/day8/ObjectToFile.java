@@ -19,6 +19,5 @@ public class ObjectToFile {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
