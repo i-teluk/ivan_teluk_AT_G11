@@ -5,9 +5,9 @@ import java.io.*;
 public class FromFileToString {
     public static void main(String[] args) throws ClassNotFoundException {
         FromFileToString fromFileToString = new FromFileToString();
-        fromFileToString.fromFileToString();
+        fromFileToString.fromFileToStringMethod();
     }
-    public void fromFileToString() throws ClassNotFoundException {
+    public void fromFileToStringMethod() throws ClassNotFoundException {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("copter.ser"))) {
             String object = ois.readObject().toString();
             System.out.println("Объект прочитан из файла");

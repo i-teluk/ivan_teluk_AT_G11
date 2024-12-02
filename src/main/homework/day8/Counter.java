@@ -2,16 +2,15 @@ package main.homework.day8;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 
 public class Counter {
     public static void main(String[] args) throws IOException {
         Counter counter = new Counter();
-        counter.counter();
+        counter.counterMethod();
     }
 
-    public void counter() throws IOException {
+    public void counterMethod() throws IOException {
         BufferedReader in = new BufferedReader(new FileReader("output.txt"));
 
         String line;

@@ -7,10 +7,10 @@ import java.io.*;
 public class ObjectToFile {
     public static void main(String[] args) {
         ObjectToFile objectToFile = new ObjectToFile();
-        objectToFile.objectToFile();
+        objectToFile.objectToFileMethod();
     }
 
-    public void objectToFile() {
+    public void objectToFileMethod() {
         Copter copter = new Copter(45, "Mi8");
 
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("copter.ser"))) {
