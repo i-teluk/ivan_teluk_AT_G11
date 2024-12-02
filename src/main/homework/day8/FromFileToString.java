@@ -19,6 +19,5 @@ public class FromFileToString {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
