@@ -5,10 +5,10 @@ import java.io.*;
 public class ReWriteFile {
     public static void main(String[] args) throws IOException {
         ReWriteFile reWriteFile = new ReWriteFile();
-        reWriteFile.reWrite();
+        reWriteFile.reWriteMethod();
     }
 
-    public void reWrite() throws IOException {
+    public void reWriteMethod() throws IOException {
         BufferedReader in = new BufferedReader(new FileReader("output.txt"));
 
         String stringFromFile = in.readLine();

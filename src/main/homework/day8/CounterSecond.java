@@ -10,10 +10,10 @@ import java.time.format.DateTimeFormatter;
 public class CounterSecond {
     public static void main(String[] args) throws IOException {
         CounterSecond counterSecond = new CounterSecond();
-        counterSecond.counterSecond();
+        counterSecond.counterSecondMethod();
     }
 
-    public void counterSecond() throws IOException {
+    public void counterSecondMethod() throws IOException {
         BufferedReader in = new BufferedReader(new FileReader("output.txt"));
 
         String line;
@@ -36,6 +36,5 @@ public class CounterSecond {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

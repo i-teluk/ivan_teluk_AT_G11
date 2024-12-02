@@ -8,10 +8,10 @@ import java.io.IOException;
 public class ReWriteFileSecond {
     public static void main(String[] args) throws IOException {
         ReWriteFileSecond reWriteFileSecond = new ReWriteFileSecond();
-        reWriteFileSecond.reWrite();
+        reWriteFileSecond.reWriteSecondMethod();
     }
 
-    public void reWrite() throws IOException {
+    public void reWriteSecondMethod() throws IOException {
         BufferedReader in = new BufferedReader(new FileReader("output.txt"));
 
         String stringFromFile = in.readLine();

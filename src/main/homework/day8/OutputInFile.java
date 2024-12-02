@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class OutputInFile {
     public static void main(String[] args) {
         OutputInFile outputInFile = new OutputInFile();
-        outputInFile.outputInFile();
+        outputInFile.outputInFileMethod();
     }
 
-    public void outputInFile() {
+    public void outputInFileMethod() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите фразу: ");
         String input = scanner.nextLine();
@@ -21,7 +21,5 @@ public class OutputInFile {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
-
     }
 }
