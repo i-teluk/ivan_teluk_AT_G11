@@ -36,6 +36,5 @@ public class CounterSecond {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
