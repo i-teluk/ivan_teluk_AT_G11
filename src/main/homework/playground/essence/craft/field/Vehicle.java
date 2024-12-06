@@ -19,4 +19,14 @@ public abstract class Vehicle extends Matter implements Rideable, Transportable 
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public void drive(String direction) {
+
+    }
+
+    @Override
+    public int move(int pointA, int pointB) {
+        return 0;
+    }
 }
