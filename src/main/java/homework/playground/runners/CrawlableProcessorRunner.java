@@ -1,7 +1,6 @@
 package homework.playground.runners;
 
 import homework.playground.essence.creatures.*;
-import main.homework.playground.essence.creatures.*;
 import homework.playground.processors.CrawlableProcessor;
 
 public class CrawlableProcessorRunner {

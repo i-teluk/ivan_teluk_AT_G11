@@ -9,11 +9,10 @@ import homework.playground.essence.craft.field.Motorbike;
 import homework.playground.essence.craft.hand.Can;
 import homework.playground.essence.craft.hand.Mug;
 import homework.playground.essence.creatures.*;
-import main.homework.playground.essence.creatures.*;
 import homework.playground.essence.material.Diesel;
 import homework.playground.essence.material.Petrol;
 import homework.playground.essence.material.Water;
-import main.project.bubbles.Bottle;
+import project.bubbles.Bottle;
 
 public class GenericMethodsInGenericClassTwoParamsRunner {
     public static void main(String[] args) {
