@@ -6,7 +6,6 @@ import homework.playground.essence.craft.hand.Can;
 import homework.playground.essence.craft.hand.Container;
 import homework.playground.essence.craft.hand.Storable;
 import homework.playground.essence.material.*;
-import main.homework.playground.essence.material.*;
 import homework.playground.processors.StorableProcessor;
 
 public class StorableProcessorRunner {
