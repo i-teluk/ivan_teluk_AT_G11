@@ -1,0 +1,22 @@
+mail.ru:
+    //*[@id="ph-whiteline"]/div/a
+    //*[@id="ph-whiteline"]/div/nav/ul/li[3]/a
+    //*[@id="mailbox"]/div[1]/button
+    //*[@id="mailbox"]/div[2]/a
+    //*[@id="grid"]/div[2]/div[3]/div/div[5]/div[1]/ul/li[1]/a/div
+    //*[@id="grid"]/div[2]/div[3]/div/div[4]/div[1]/a[7]
+    //*[@id="ph-whiteline"]/div/div[2]/div[1]
+    //*[@id="ph-whiteline"]/div/div[2]/div[2]
+    //*[@id="mfjahgN"]/div[3]/div/div/form/div[3]/button
+
+spartak.by
+    //*[@id="main"]/div[2]/div/div/div/div[1]/a/img
+    //*[@id="main"]/div[2]/div/div/div/div[2]/div/ul[2]/li[2]/div/div/a[2]
+    //*[@id="main"]/div[2]/div/div/div/div[2]/div/ul[2]/li[3]/a
+    //*[@id="main"]/div[2]/div/div/div/div[3]/div[1]/ul/li/i
+    //*[@id="main"]/div[2]/div/div/div/div[3]/span
+    //*[@id="main"]/div[2]/div/div/div/div[3]/div[3]/a[1]
+    //*[@id="main"]/div[2]/div/div/div/div[3]/div[3]/a[4]
+    //*[@id="header"]/div[2]/div/ol/li[2]/a
+    //*[@id="header"]/div[2]/ul/li[3]
+    //*[@id="header"]/div[2]/ul/li[7]/a/img
