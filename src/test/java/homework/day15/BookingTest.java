@@ -71,5 +71,7 @@ public class BookingTest {
         } else {
             System.out.println("Test fail! Room not found");
         }
+
+        driver.quit();
     }
 }
