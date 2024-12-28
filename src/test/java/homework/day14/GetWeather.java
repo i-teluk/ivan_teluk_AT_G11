@@ -18,7 +18,6 @@ public class GetWeather {
     @Test
     public void getWeather() throws InterruptedException {
         WebDriver driver = new ChromeDriver();
-        List<String> days = Arrays.asList("понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье");
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://google.com");
@@ -31,16 +30,8 @@ public class GetWeather {
 
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE");
-        String tomorrowDay = "";
-        for (int i = 0; i < days.size(); i++) {
-            if (days.get(i).equals(now.format(formatter))) {
-                if (i == days.size() - 1) {
-                    tomorrowDay = days.getFirst();
-                } else {
-                    tomorrowDay = days.get(i + 1);
-                }
-            }
-        }
+        String tomorrowDay = now.plusDays(1).format(formatter);
+
         String xPath = String.format("//*[contains(@aria-label, '°Celsius %s 12:00')]", tomorrowDay);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xPath)));

@@ -8,6 +8,8 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import static org.junit.Assert.assertEquals;
+
 public class BookingTest {
     @Test
     public void bookingTest() {
@@ -22,7 +24,7 @@ public class BookingTest {
                 acceptCookie.click();
             }
         } catch (NoSuchElementException e) {
-            System.out.println("Элемент не найден");
+            System.out.println("Permission to use cookies was not requested.");
         }
 
         driver.findElement(By.xpath("//input[@placeholder='Куда вы хотите поехать?']")).sendKeys("Париж");
@@ -52,7 +54,7 @@ public class BookingTest {
                 closeAuth.click();
             }
         } catch (NoSuchElementException e) {
-            System.out.println("Элемент не найден");
+            System.out.println("The authorization pop-up did not appear.");
         }
         stars.click();
 
@@ -62,16 +64,7 @@ public class BookingTest {
         WebElement firstRoom = driver.findElement(By.xpath("//div[@aria-label='Вариант жилья']//span/div[1]"));
         String aria_label = firstRoom.getDomAttribute("aria-label");
 
-        if (aria_label != null) {
-            if (aria_label.equals("5 из 5")) {
-                System.out.println("Test pass!");
-            } else {
-                System.out.println("Test fail! First room does not have 5 stars!");
-            }
-        } else {
-            System.out.println("Test fail! Room not found");
-        }
-
+        assertEquals("Test fail! First room does not have 5 stars!", "5 из 5", aria_label);
         driver.quit();
     }
 }
