@@ -1,5 +1,6 @@
 package homework.day14;
 
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,33 +15,25 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GetWeather {
-    public static void main(String[] str) throws InterruptedException {
+    @Test
+    public void getWeather() throws InterruptedException {
         WebDriver driver = new ChromeDriver();
-        List<String> days = Arrays.asList("понедельник","вторник","среда","четверг","пятница","суббота","воскресенье");
 
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://google.com");
-        System.out.println(driver.getTitle());
-        System.out.println(driver.getCurrentUrl());
-        Thread.sleep(1000);
         driver.findElement(By.name("q")).sendKeys("погода Минск");
-        Thread.sleep(2000);
-        WebElement web = driver.findElement(By.xpath("(//div[@role='option'])[1]"));
-        web.click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@role='option'][1]")));
+        driver.findElement(By.xpath("//div[@role='option'][1]")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE");
-        String tomorrowDay = "";
-        for (int i = 0; i < days.size(); i++) {
-            if (days.get(i).equals(now.format(formatter))) {
-                if (i == days.size() - 1) {
-                    tomorrowDay = days.getFirst();
-                } else {
-                    tomorrowDay = days.get(i+1);
-                }
-            }
-        }
+        String tomorrowDay = now.plusDays(1).format(formatter);
+
         String xPath = String.format("//*[contains(@aria-label, '°Celsius %s 12:00')]", tomorrowDay);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xPath)));
         List<WebElement> elements = driver.findElements(By.xpath(xPath));
         if (!elements.isEmpty()) {
@@ -49,5 +42,6 @@ public class GetWeather {
         } else {
             System.out.println("Элементы с данным XPath не найдены.");
         }
+        driver.quit();
     }
 }
