@@ -22,7 +22,5 @@ public class FindNumbers {
             System.out.print(i + " ");
         }
         System.out.println();
-
-
     }
 }

@@ -46,5 +46,6 @@ public class BookingJS {
 
         File asfile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(asfile, new File("screen.png"));
+        driver.quit();
     }
 }

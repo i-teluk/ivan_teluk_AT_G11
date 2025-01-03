@@ -53,5 +53,6 @@ public class TutorialTest {
             }
 
         }
+        driver.quit();
     }
 }

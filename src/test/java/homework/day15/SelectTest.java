@@ -47,5 +47,6 @@ public class SelectTest {
         multiselect1.click();
         WebElement multiselect2 = driver.findElement(By.id("react-select-4-option-3"));
         multiselect2.click();
+        driver.quit();
     }
 }

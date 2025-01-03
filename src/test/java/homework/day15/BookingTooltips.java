@@ -43,6 +43,6 @@ public class BookingTooltips {
         WebElement languageTooltips = driver.findElement(By.xpath("//div[@id=':r6:']"));
         String languageTooltipsText = languageTooltips.getText().toLowerCase();
         assertEquals("Test fail! languageTooltips doesn't contain expected text!", "выберите язык", languageTooltipsText);
-
+        driver.quit();
     }
 }

@@ -42,5 +42,6 @@ public class GetWeather {
         } else {
             System.out.println("Элементы с данным XPath не найдены.");
         }
+        driver.quit();
     }
 }
