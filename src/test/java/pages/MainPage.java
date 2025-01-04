@@ -21,20 +21,11 @@ public class MainPage {
     private By language = By.xpath("//button[@data-testid='header-language-picker-trigger']");
 
     public void enterDestination(String destination) {
-        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
-        Driver.getDriver().findElement(searchField).sendKeys(destination);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//li[@id='autocomplete-result-0']")));
-        WebElement searchFieldElement = Driver.getDriver().findElement(searchField);
-        String currentValue = (String) ((JavascriptExecutor) Driver.getDriver())
-                .executeScript("return arguments[0].value;", searchFieldElement);
-        System.out.println("Current value in search field: " + currentValue);
-
-        wait.until(d -> currentValue.equals(destination));
-
-        WebElement suggestedOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@id='autocomplete-result-0']")));
-        //suggestedOption.click();
-        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        WebElement city = Driver.getDriver().findElement(By.name("ss"));
+        city.clear();
+        city.sendKeys(destination);
+        String xPath = "//div[text()='" + destination + "']";
+        Driver.getDriver().findElement(By.xpath(xPath)).click();
     }
 
     public void selectDates(int startInDays, int endInDays) {
