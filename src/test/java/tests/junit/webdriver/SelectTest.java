@@ -1,21 +1,19 @@
-package homework.day15;
+package tests.junit.webdriver;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import driver.Driver;
 
 import java.time.Duration;
 
 public class SelectTest {
     @Test
     public void selectTest() {
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = Driver.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
 
         driver.get("https://demoqa.com/select-menu");

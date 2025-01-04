@@ -15,9 +15,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.2</version>
                 <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>src/test/java/testng.xml</suiteXmlFile>
-                    </suiteXmlFiles>
+                    <includes>
+                        <include>JUnitRunners.java</include> <!-- Шаблон для включения тестов -->
+                    </includes>
                 </configuration>
             </plugin>
         </plugins>
