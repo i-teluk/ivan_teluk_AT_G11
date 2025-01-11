@@ -1,9 +1,11 @@
-package homework.day15;
+package tests.junit.webdriver;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import driver.Driver;
 
 import java.time.Duration;
 import java.util.List;
@@ -11,12 +13,16 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class TutorialTest {
+    WebDriver driver = Driver.getDriver();
+
+    @Before
+    public void setUp() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.get("https://www.w3schools.com/java/");
+    }
+
     @Test
     public void tutorialTest() {
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
-
-        driver.get("https://www.w3schools.com/java/");
         WebElement tutorial = driver.findElement(By.cssSelector("span.color_h1"));
 
         Actions make = new Actions(driver);
@@ -46,13 +52,12 @@ public class TutorialTest {
 
         for (WebElement element : searchResults) {
             String elementText = element.getText().toLowerCase();
-            if (elementText.contains("tutorial")) {
-                System.out.println("Элемент содержит tutorial");
-            } else {
-                System.out.println("Элемент не содержит tutorial: " + elementText);
-            }
-
+            assertTrue("Элемент не содержит 'tutorial': " + elementText, elementText.contains("tutorial"));
         }
-        driver.quit();
+    }
+
+    @After
+    public void tearDown() {
+        Driver.quitDriver();
     }
 }

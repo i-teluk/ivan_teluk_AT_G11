@@ -1,3 +1,5 @@
+package tests.junit.unit;
+
 import org.junit.Test;
 import people.ManualEngineer;
 

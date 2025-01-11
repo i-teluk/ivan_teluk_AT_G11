@@ -1,24 +1,28 @@
-package homework.day15;
+package tests.junit.webdriver;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import driver.Driver;
 
 import java.time.Duration;
 
 public class SelectTest {
+    WebDriver driver = Driver.getDriver();
+
+    @Before
+    public void setUp() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.get("https://demoqa.com/select-menu");
+    }
+
     @Test
     public void selectTest() {
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
-
-        driver.get("https://demoqa.com/select-menu");
 
         WebElement selectValueField = driver.findElement(By.xpath("//div[@id='withOptGroup']/div[1]/div[2]"));
         selectValueField.click();
@@ -47,6 +51,10 @@ public class SelectTest {
         multiselect1.click();
         WebElement multiselect2 = driver.findElement(By.id("react-select-4-option-3"));
         multiselect2.click();
-        driver.quit();
+    }
+
+    @After
+    public void tearDown() {
+        Driver.quitDriver();
     }
 }

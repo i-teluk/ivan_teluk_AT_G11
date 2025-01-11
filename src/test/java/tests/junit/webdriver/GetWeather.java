@@ -1,26 +1,32 @@
-package homework.day14;
+package tests.junit.webdriver;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import driver.Driver;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 import java.util.List;
 
 public class GetWeather {
-    @Test
-    public void getWeather() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+    WebDriver driver = Driver.getDriver();
 
+    @Before
+    public void setUp(){
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://google.com");
+    }
+
+    @Test
+    public void getWeather() throws InterruptedException {
+
         driver.findElement(By.name("q")).sendKeys("погода Минск");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -42,6 +48,10 @@ public class GetWeather {
         } else {
             System.out.println("Элементы с данным XPath не найдены.");
         }
-        driver.quit();
+    }
+
+    @After
+    public void tearDown() {
+        Driver.quitDriver();
     }
 }

@@ -1,3 +1,5 @@
+package tests.testng.unit;
+
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import people.AutomatedEngineer;
