@@ -11,10 +11,11 @@ import java.util.List;
 import static org.testng.Assert.assertTrue;
 
 public class TutorialTest {
-    WebDriver driver = Driver.getDriver();
+    WebDriver driver;
 
     @BeforeMethod
     public void setUp() {
+        driver = Driver.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://www.w3schools.com/java/");
     }

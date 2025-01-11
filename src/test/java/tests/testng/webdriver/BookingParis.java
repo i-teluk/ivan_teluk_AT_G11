@@ -12,10 +12,11 @@ import java.time.Duration;
 import static org.testng.Assert.assertEquals;
 
 public class BookingParis {
-    WebDriver driver = Driver.getDriver();
+    WebDriver driver;
 
     @BeforeMethod
     public void setUp() {
+        driver = Driver.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://booking.com");
     }

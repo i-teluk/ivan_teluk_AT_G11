@@ -11,10 +11,11 @@ import org.openqa.selenium.support.ui.Select;
 import java.time.Duration;
 
 public class SelectTest {
-    WebDriver driver = Driver.getDriver();
+    WebDriver driver;
 
     @BeforeMethod
     public void setUp() {
+        driver = Driver.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://demoqa.com/select-menu");
     }
