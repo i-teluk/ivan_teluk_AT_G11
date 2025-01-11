@@ -1,23 +1,20 @@
-package tests.junit.webdriver;
+package tests.testng.webdriver;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.*;
 import driver.Driver;
-import pages.MainPage;
-import pages.RoomPage;
-import pages.SearchResultsPage;
 import objects.PopUp;
+import org.testng.annotations.*;
+import org.openqa.selenium.WebDriver;
+import pages.MainPage;
+import pages.SearchResultsPage;
 
 import java.time.Duration;
 
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertEquals;
 
-public class BookingPrague {
+public class BookingParis {
     WebDriver driver = Driver.getDriver();
 
-    @Before
+    @BeforeMethod
     public void setUp() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://booking.com");
@@ -27,21 +24,23 @@ public class BookingPrague {
     public void bookingTest() {
         MainPage mainPage = new MainPage();
         SearchResultsPage searchResultsPage = new SearchResultsPage();
-        RoomPage roomPage = new RoomPage();
 
         PopUp.closePermissionToUseCookie();
         PopUp.closeAuthorizationPopUp();
 
-        mainPage.enterDestination("Прага");
+        mainPage.enterDestination("Париж");
         mainPage.clickSearch();
-        searchResultsPage.applyHighRatingFilter();
-        searchResultsPage.goingToFirstRoomPage();
-        Driver.changeBrowserTab();
-        Double ratingNumber = roomPage.getRatingNumber();
-        assertTrue(ratingNumber >= 9.0);
+        mainPage.selectDates(3, 10);
+        mainPage.configureGuests(4, 2);
+        mainPage.clickSearch();
+        searchResultsPage.applyFiveStarFilter();
+        searchResultsPage.sortByRating();
+        String aria_label = searchResultsPage.getFirstRoomRating();
+
+        assertEquals(aria_label, "5 из 5", "Test fail! First room does not have 5 stars!");
     }
 
-    @After
+    @AfterMethod
     public void tearDown() {
         Driver.quitDriver();
     }

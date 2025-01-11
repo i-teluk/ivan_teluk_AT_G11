@@ -35,7 +35,7 @@ public class Driver {
                 break;
             }
         }
-
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     public static void quitDriver() {

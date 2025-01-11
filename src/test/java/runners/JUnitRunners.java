@@ -14,9 +14,9 @@ import tests.junit.webdriver.*;
         BaseEngineerUnitTests.class,
         BookingJS.class,
         BookingPrague.class,
-        //BookingParis.class,
-        //BookingTooltips.class,
-        //GetWeather.class,
+        BookingParis.class,
+        BookingTooltips.class,
+        GetWeather.class,
         //SelectTest.class,
         //TutorialTest.class
 })

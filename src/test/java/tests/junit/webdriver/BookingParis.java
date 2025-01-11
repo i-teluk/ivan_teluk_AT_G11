@@ -28,8 +28,10 @@ public class BookingParis {
         SearchResultsPage searchResultsPage = new SearchResultsPage();
 
         PopUp.closePermissionToUseCookie();
+        PopUp.closeAuthorizationPopUp();
 
         mainPage.enterDestination("Париж");
+        mainPage.clickSearch();
         mainPage.selectDates(3, 10);
         mainPage.configureGuests(4,2);
         mainPage.clickSearch();
@@ -38,7 +40,6 @@ public class BookingParis {
         String aria_label = searchResultsPage.getFirstRoomRating();
 
         assertEquals("Test fail! First room does not have 5 stars!", "5 из 5", aria_label);
-        driver.quit();
     }
 
     @After

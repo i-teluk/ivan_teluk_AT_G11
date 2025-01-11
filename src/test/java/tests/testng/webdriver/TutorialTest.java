@@ -1,21 +1,19 @@
-package tests.junit.webdriver;
+package tests.testng.webdriver;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import driver.Driver;
+import org.testng.annotations.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import driver.Driver;
 
 import java.time.Duration;
 import java.util.List;
 
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertTrue;
 
 public class TutorialTest {
     WebDriver driver = Driver.getDriver();
 
-    @Before
+    @BeforeMethod
     public void setUp() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://www.w3schools.com/java/");
@@ -52,11 +50,11 @@ public class TutorialTest {
 
         for (WebElement element : searchResults) {
             String elementText = element.getText().toLowerCase();
-            assertTrue("Элемент не содержит 'tutorial': " + elementText, elementText.contains("tutorial"));
+            assertTrue(elementText.contains("tutorial"), "Элемент не содержит 'tutorial': " + elementText);
         }
     }
 
-    @After
+    @AfterMethod
     public void tearDown() {
         Driver.quitDriver();
     }

@@ -1,14 +1,14 @@
-package tests.junit.webdriver;
+package tests.testng.webdriver;
 
-import org.apache.commons.io.FileUtils;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.*;
 import driver.Driver;
+import objects.PopUp;
+import org.apache.commons.io.FileUtils;
+import org.testng.annotations.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import pages.MainPage;
 import pages.SearchResultsPage;
-import objects.PopUp;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import java.time.Duration;
 public class BookingJS {
     WebDriver driver = Driver.getDriver();
 
-    @Before
+    @BeforeMethod
     public void setUp() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://booking.com");
@@ -39,7 +39,7 @@ public class BookingJS {
 
     }
 
-    @After
+    @AfterMethod
     public void tearDown() {
         Driver.quitDriver();
     }

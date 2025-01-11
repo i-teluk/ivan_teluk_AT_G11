@@ -1,23 +1,21 @@
-package tests.junit.webdriver;
+package tests.testng.webdriver;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.*;
 import driver.Driver;
+import objects.PopUp;
+import org.testng.annotations.*;
+import org.openqa.selenium.WebDriver;
 import pages.MainPage;
 import pages.RoomPage;
 import pages.SearchResultsPage;
-import objects.PopUp;
 
 import java.time.Duration;
 
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertTrue;
 
 public class BookingPrague {
     WebDriver driver = Driver.getDriver();
 
-    @Before
+    @BeforeMethod
     public void setUp() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://booking.com");
@@ -41,7 +39,7 @@ public class BookingPrague {
         assertTrue(ratingNumber >= 9.0);
     }
 
-    @After
+    @AfterMethod
     public void tearDown() {
         Driver.quitDriver();
     }

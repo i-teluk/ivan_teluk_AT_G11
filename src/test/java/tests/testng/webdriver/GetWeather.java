@@ -1,14 +1,12 @@
-package tests.junit.webdriver;
+package tests.testng.webdriver;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import driver.Driver;
+import org.testng.annotations.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import driver.Driver;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -18,7 +16,7 @@ import java.util.List;
 public class GetWeather {
     WebDriver driver = Driver.getDriver();
 
-    @Before
+    @BeforeMethod
     public void setUp(){
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://google.com");
@@ -50,7 +48,7 @@ public class GetWeather {
         }
     }
 
-    @After
+    @AfterMethod
     public void tearDown() {
         Driver.quitDriver();
     }

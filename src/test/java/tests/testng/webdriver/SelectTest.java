@@ -1,21 +1,19 @@
-package tests.junit.webdriver;
+package tests.testng.webdriver;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import driver.Driver;
+import org.testng.annotations.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import driver.Driver;
 
 import java.time.Duration;
 
 public class SelectTest {
     WebDriver driver = Driver.getDriver();
 
-    @Before
+    @BeforeMethod
     public void setUp() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://demoqa.com/select-menu");
@@ -53,7 +51,7 @@ public class SelectTest {
         multiselect2.click();
     }
 
-    @After
+    @AfterMethod
     public void tearDown() {
         Driver.quitDriver();
     }

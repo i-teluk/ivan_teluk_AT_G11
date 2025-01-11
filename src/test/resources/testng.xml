@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="TestNG" verbose="3">
+    <test name="testng">
+        <classes>
+            <class name="tests.testng.unit.ManualEngineerNGTests" />
+            <class name="tests.testng.unit.AutomatedEngineerNGTests" />
+            <class name="tests.testng.unit.BaseEngineerNGTests" />
+            <class name="tests.testng.webdriver.BookingJS" />
+            <class name="tests.testng.webdriver.BookingParis" />
+            <class name="tests.testng.webdriver.BookingPrague" />
+            <class name="tests.testng.webdriver.BookingTooltips" />
+            <class name="tests.testng.webdriver.GetWeather" />
+        </classes>
+    </test>
+</suite>

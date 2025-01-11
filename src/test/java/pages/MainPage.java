@@ -3,6 +3,7 @@ package pages;
 import driver.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,7 +14,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class MainPage {
-    private By searchField = By.xpath("//input[@placeholder='Куда вы хотите поехать?']");
+    WebDriver driver = Driver.getDriver();
+
     private By startDateButton = By.xpath("//button[@data-testid='date-display-field-start']");
     private By guestsButton = By.xpath("//button[@data-testid='occupancy-config']");
     private By searchButton = By.xpath("//button[@type='submit']");
@@ -21,11 +23,11 @@ public class MainPage {
     private By language = By.xpath("//button[@data-testid='header-language-picker-trigger']");
 
     public void enterDestination(String destination) {
-        WebElement city = Driver.getDriver().findElement(By.name("ss"));
+        WebElement city = driver.findElement(By.name("ss"));
         city.clear();
         city.sendKeys(destination);
         String xPath = "//div[text()='" + destination + "']";
-        Driver.getDriver().findElement(By.xpath(xPath)).click();
+        driver.findElement(By.xpath(xPath)).click();
     }
 
     public void selectDates(int startInDays, int endInDays) {
@@ -35,44 +37,51 @@ public class MainPage {
         String startDateXpath = String.format("//span[@data-date='%s']", now.plusDays(startInDays).format(formatter));
         String endDateXpath = String.format("//span[@data-date='%s']", now.plusDays(endInDays).format(formatter));
 
-        Driver.getDriver().findElement(startDateButton).click();
-        Driver.getDriver().findElement(By.xpath(startDateXpath)).click();
-        Driver.getDriver().findElement(By.xpath(endDateXpath)).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(startDateXpath)));
+        driver.findElement(By.xpath(startDateXpath)).click();
+        driver.findElement(By.xpath(endDateXpath)).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     public void configureGuests(int adults, int rooms) {
-        Driver.getDriver().findElement(guestsButton).click();
+        driver.findElement(guestsButton).click();
         if (adults > 2) {
             for (int i = 0; i < adults - 2; i++) {
-                Driver.getDriver().findElement(By.xpath("//input[@id='group_adults']/../div[2]/button[2]")).click();
+                driver.findElement(By.xpath("//input[@id='group_adults']/../div[2]/button[2]")).click();
             }
         } else if (adults == 1) {
-            Driver.getDriver().findElement(By.xpath("//input[@id='group_adults']/../div[2]/button[1]")).click();
+            driver.findElement(By.xpath("//input[@id='group_adults']/../div[2]/button[1]")).click();
         }
         if (rooms > 1) {
             for (int i = 0; i < rooms - 1; i++) {
-                Driver.getDriver().findElement(By.xpath("//input[@id='no_rooms']/../div[2]/button[2]")).click();
+                driver.findElement(By.xpath("//input[@id='no_rooms']/../div[2]/button[2]")).click();
             }
         }
     }
 
     public void clickSearch() {
-        Driver.getDriver().findElement(searchButton).click();
+        driver.findElement(searchButton).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@data-testid='skeleton-loader']")));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     public String getCurrencyTooltipText() {
-        WebElement currencyTooltip = Driver.getDriver().findElement(currency);
-        Actions action = new Actions(Driver.getDriver());
+        WebElement currencyTooltip = driver.findElement(currency);
+        Actions action = new Actions(driver);
         action.moveToElement(currencyTooltip);
         action.perform();
-        return Driver.getDriver().findElement(By.xpath("//div[@id=':r0:']")).getText().toLowerCase();
+        return driver.findElement(By.xpath("//div[@id=':r0:']")).getText().toLowerCase();
     }
 
     public String getLanguageTooltipText() {
-        WebElement currencyTooltip = Driver.getDriver().findElement(language);
-        Actions action = new Actions(Driver.getDriver());
+        WebElement currencyTooltip = driver.findElement(language);
+        Actions action = new Actions(driver);
         action.moveToElement(currencyTooltip);
         action.perform();
-        return Driver.getDriver().findElement(By.xpath("//div[@id=':r6:']")).getText().toLowerCase();
+        return driver.findElement(By.xpath("//div[@id=':r6:']")).getText().toLowerCase();
     }
 }
