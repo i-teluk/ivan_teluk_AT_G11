@@ -16,9 +16,7 @@ import tests.junit.webdriver.*;
         BookingPrague.class,
         BookingParis.class,
         BookingTooltips.class,
-        GetWeather.class,
-        //SelectTest.class,
-        //TutorialTest.class
+        GetWeather.class
 })
 public class JUnitRunners {
 }

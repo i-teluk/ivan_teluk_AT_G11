@@ -1,10 +1,10 @@
 package tests.testng.webdriver;
 
 import driver.Driver;
-import objects.PopUp;
+import pages.selenium.PopUp;
 import org.testng.annotations.*;
 import org.openqa.selenium.WebDriver;
-import pages.MainPage;
+import pages.selenium.MainPage;
 
 import java.time.Duration;
 
