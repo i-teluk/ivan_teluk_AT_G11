@@ -5,8 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import driver.Driver;
-import pages.MainPage;
-import objects.PopUp;
+import pages.selenium.MainPage;
+import pages.selenium.PopUp;
 
 import java.time.Duration;
 
