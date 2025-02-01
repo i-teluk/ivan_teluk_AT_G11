@@ -1,14 +1,14 @@
 package tests.testng.webdriver;
 
 import driver.Driver;
-import objects.PopUp;
+import pages.selenium.PopUp;
 import org.apache.commons.io.FileUtils;
 import org.testng.annotations.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import pages.MainPage;
-import pages.SearchResultsPage;
+import pages.selenium.MainPage;
+import pages.selenium.SearchResultsPage;
 
 import java.io.File;
 import java.io.IOException;
